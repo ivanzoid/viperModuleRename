@@ -1,0 +1,34 @@
+#!/bin/bash
+
+usage()
+{
+
+    echo '
+This script will change rename VIPER module in your iOS app.
+
+Usage:
+	viperModuleRename <classPrefix> <oldName> <newName> <directory>
+'
+
+    exit 0
+}
+
+main()
+{
+	set -eo pipefail
+
+	if [ "$#" -lt 4 ]; then
+		usage
+		exit
+	fi
+
+	CLASS_PREFIX="$1"
+	OLD_NAME="$2"
+	NEW_NAME="$3"
+	DIR="$4"
+
+	prefixChange "${CLASS_PREFIX}${OLD_NAME}" "${CLASS_PREFIX}${NEW_NAME}" "$DIR"
+	prefixChange "${OLD_NAME}Module" "${NEW_NAME}Module" "$DIR"
+}
+
+main "$@"
