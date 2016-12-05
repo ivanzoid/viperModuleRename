@@ -4,7 +4,7 @@ usage()
 {
 
     echo '
-This script will change rename VIPER module in your iOS app.
+This script will rename VIPER module in your iOS app.
 
 Usage:
 	viperModuleRename <classPrefix> <oldName> <newName> <directory>
